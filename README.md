@@ -7,9 +7,11 @@ This tool allows you to check the validity of Discord invite links. It retrieves
 2. Make sure you have Python installed.
 3. Open a terminal or command prompt in the cloned directory.
 4. Run the following command to start the tool:
+
     ```
     python main.py
     ```
+    
 5. Enter the Discord invite link or code when prompted.
 6. The tool will display various details about the server associated with the provided invite link.
 
