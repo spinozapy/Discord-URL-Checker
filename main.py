@@ -38,14 +38,26 @@ while True:
                 print(colorama.Fore.YELLOW + f" Server Name  : " + colorama.Fore.LIGHTWHITE_EX + str(data['guild']['name']))
                 print(colorama.Fore.YELLOW + f" Description  : " + colorama.Fore.LIGHTWHITE_EX + str(data['guild'].get('description', 'None')))
                 print("")
-                banner_extension = "gif" if data['guild'].get('banner', '').startswith("a_") else "png"
-                banner_url = f"https://cdn.discordapp.com/banners/{data['guild']['id']}/{data['guild'].get('banner', '')}.{banner_extension}" if data['guild'].get('banner') else "None"
+                banner_value = data['guild'].get('banner')
+                if banner_value is not None:
+                    banner_extension = "gif" if banner_value.startswith("a_") else "png"
+                else:
+                    banner_extension = "None"
+                banner_url = f"https://cdn.discordapp.com/banners/{data['guild']['id']}/{banner_value}.{banner_extension}" if banner_value else "Banner not found."
                 print(colorama.Fore.YELLOW + f" Banner URL   : " + colorama.Fore.LIGHTWHITE_EX + str(banner_url))
-                icon_extension = "gif" if data['guild'].get('icon', '').startswith("a_") else "png"
-                icon_url = f"https://cdn.discordapp.com/icons/{data['guild']['id']}/{data['guild'].get('icon', '')}.{icon_extension}" if data['guild'].get('icon') else "None"
+                icon_value = data['guild'].get('icon')
+                if icon_value is not None:
+                    icon_extension = "gif" if icon_value.startswith("a_") else "png"
+                else:
+                    icon_extension = "None"
+                icon_url = f"https://cdn.discordapp.com/icons/{data['guild']['id']}/{icon_value}.{icon_extension}" if icon_value else "Icon not found."
                 print(colorama.Fore.YELLOW + f" Icon URL     : " + colorama.Fore.LIGHTWHITE_EX + str(icon_url))
-                splash_extension = "png"
-                splash_url = f"https://cdn.discordapp.com/splashes/{data['guild']['id']}/{data['guild'].get('splash', '')}.{splash_extension}" if data['guild'].get('splash') else "None"
+                splash_value = data['guild'].get('splash')
+                if splash_value is not None:
+                     splash_extension = "png"
+                else:
+                    splash_extension = "None"
+                splash_url = f"https://cdn.discordapp.com/splashes/{data['guild']['id']}/{splash_value}.{splash_extension}" if splash_value else "Splash not found."
                 print(colorama.Fore.YELLOW + f" Splash URL   : " + colorama.Fore.LIGHTWHITE_EX + str(splash_url))
 
                 print("")
